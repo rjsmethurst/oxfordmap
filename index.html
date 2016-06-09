@@ -40,7 +40,7 @@
 		mymap.on('locationfound', onLocationFound);
 		
 		function onLocationError(e) {
-    			mymap.locate({setView: [51.7505017,-1.2589], maxZoom: 16})
+    			mymap.setview([51.7505017,-1.2589], 15)
 		}
 		mymap.on('locationerror', onLocationError);
 
