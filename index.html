@@ -34,7 +34,7 @@
 		mymap.locate({setView: true, maxZoom: 16});
 		
 		function onLocationFound(e) {
-    			L.marker(e.latlng).addTo(map)
+    			L.marker(e.latlng).addTo(mymap)
     				.bindPopup('You are here')
 		}
 		mymap.on('locationfound', onLocationFound);
