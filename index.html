@@ -30,6 +30,11 @@
     		id: 'mapbox.streets',
     		accessToken: 'pk.eyJ1IjoicmpzbWV0aHVyc3QiLCJhIjoiY2lnbG56YnplMDE0M3RjbTNkems5cWI0aCJ9.ekUxiCzi_8dwkUinlpr1YQ'
 }).addTo(mymap);
+		
+		function onLocationFound(e) {
+    			L.marker(e.latlng).addTo(map)
+    				.bindPopup('You are here')
+		}
 
 		var homeIcon = L.icon({
     			iconUrl: 'home.png',
