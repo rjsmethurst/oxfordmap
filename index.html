@@ -54,62 +54,9 @@
 <script>
 var map = L.map('map').setView([51.7505017,-1.3177993], 11);
 
-
-
-function getColor(d) {
-    return d == 2   ? '#CC2900' :
-           d == 3   ? '#E68A2E' :
-           d == 4   ? '#FFD119' :
-           d == 5   ? '#309B30' :
-           d == 6   ? '#009999' :
-           d == 7   ? '#1947A3' :
-           d == 8   ? '#bb00bb' :
-           d == 9   ? '#000000' :
-                      '#000000' ;
-}
-
-
-var redicon = L.marker({icon: null, color: "#CC2900", size: "m"});
-var orangeicon = L.marker({icon: null, color: "#E68A2E", size: "m"});
-var yellowicon =L.marker({icon: null, color: "#FFD119", size: "m"});
-var greenicon = L.marker({icon: null, color: "#309B30", size: "m"});
-var aquaicon = L.marker({icon: null, color: "#009999", size: "m"});
-var blueicon = L.marker({icon: null, color: "#1947A3", size: "m"});
-var purpleicon = L.marker({icon: null, color: "#bb00bb", size: "m"});
-var blackicon = L.marker({icon: null, color: "#000000", size: "m"});
-
-marker = L.marker([51.7502347,-1.258915],{icon: redicon}).addTo(map);
-oms.addMarker(marker); 
+marker = L.marker([51.7502347,-1.258915]).addTo(map);
 marker.bindPopup('<b>Pembroke College</b><br>Conference venue and accomodation');
-	
-
-var legend = L.control({position: 'bottomleft'});
-
-legend.onAdd = function (map) {
-
-    var div = L.DomUtil.create('div', 'info legend'),
-        grades = [1, 2, 3, 4, 5, 6, 7, 8],
-        labels = ['Conference Venues',
-        		  'Oganised pub trips',
-        		  'Recommended pubs',
-        		  'Recommended restaurants',
-        		  'Coffee houses'];
-
-    // loop through our density intervals and generate a label with a colored square for each interval
-    for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            '<i class="circle" style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-            labels[i] + '<br>';
-    }    
-
-    return div;
-};
-
-legend.addTo(map);
-
-
 </script>
-
 
 </body>
 
