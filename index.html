@@ -31,13 +31,13 @@
     		accessToken: 'pk.eyJ1IjoicmpzbWV0aHVyc3QiLCJhIjoiY2lnbG56YnplMDE0M3RjbTNkems5cWI0aCJ9.ekUxiCzi_8dwkUinlpr1YQ'
 }).addTo(mymap);
 		
-		map.locate({setView: true, maxZoom: 16});
+		mymap.locate({setView: true, maxZoom: 16});
 		
 		function onLocationFound(e) {
     			L.marker(e.latlng).addTo(map)
     				.bindPopup('You are here')
 		}
-		map.on('locationfound', onLocationFound);
+		mymap.on('locationfound', onLocationFound);
 		
 		
 
