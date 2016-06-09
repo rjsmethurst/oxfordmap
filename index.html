@@ -36,6 +36,9 @@
 		function onLocationFound(e) {
     			L.marker(e.latlng).addTo(mymap)
     				.bindPopup('You are here')
+    			if (e.latlng.lat < 51.768 || e.latlng.lat > 51.74247 || e.latlng.lng > -1.2336 || e.latlng.lng < -1.27793) {
+    				mymap.setView([51.7505017,-1.2589], 15)	
+    			}
 		}
 		mymap.on('locationfound', onLocationFound);
 		
