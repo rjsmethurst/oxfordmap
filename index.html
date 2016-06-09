@@ -23,70 +23,117 @@
     		id: 'mapbox.streets',
     		accessToken: 'pk.eyJ1IjoicmpzbWV0aHVyc3QiLCJhIjoiY2lnbG56YnplMDE0M3RjbTNkems5cWI0aCJ9.ekUxiCzi_8dwkUinlpr1YQ'
 }).addTo(mymap);
-		marker = L.marker([51.75024, -1.25782]).addTo(mymap);
+
+		var homeIcon = L.icon({
+    			iconUrl: 'home.png',
+
+			iconSize:     [29, 39], // size of the icon
+    			iconAnchor:   [15, 38], // point of the icon which will correspond to marker's location
+    			popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    			});
+    		var beerIcon = L.icon({
+    			iconUrl: 'beer.png',
+
+			iconSize:     [29, 39], // size of the icon
+    			iconAnchor:   [15, 38], // point of the icon which will correspond to marker's location
+    			popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    			});
+    		var foodIcon = L.icon({
+    			iconUrl: 'food.png',
+
+			iconSize:     [29, 39], // size of the icon
+    			iconAnchor:   [15, 38], // point of the icon which will correspond to marker's location
+    			popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    			});
+    			
+    		var coffeeIcon = L.icon({
+    			iconUrl: 'coffee.png',
+
+			iconSize:     [29, 39], // size of the icon
+    			iconAnchor:   [15, 38], // point of the icon which will correspond to marker's location
+    			popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    			});
+    			
+    		var busIcon = L.icon({
+    			iconUrl: 'bus.png',
+
+			iconSize:     [29, 39], // size of the icon
+    			iconAnchor:   [15, 38], // point of the icon which will correspond to marker's location
+    			popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    			});
+    			
+    		var workIcon = L.icon({
+    			iconUrl: 'laptop.png',
+
+			iconSize:     [29, 39], // size of the icon
+    			iconAnchor:   [15, 38], // point of the icon which will correspond to marker's location
+    			popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    			});
+
+		marker = L.marker([51.75024, -1.25782], {icon: homeIcon}).addTo(mymap);
 		marker.bindPopup('<b>Pembroke College</b><br>Conference venue and accomodation');
 		
-		marker = L.marker([51.75484, -1.25423]).addTo(mymap);
+		marker = L.marker([51.75484, -1.25423], {icon: workIcon}).addTo(mymap);
 		marker.bindPopup('<b>Oxford Martin School</b><br>Day 0 Venue');
 		
-		marker = L.marker([51.75511, -1.25432]).addTo(mymap);
+		marker = L.marker([51.75511, -1.25432], {icon: beerIcon}).addTo(mymap);
 		marker.bindPopup('<b>The Kings Arms</b><br>Monday night pub');
 		
-		marker = L.marker([51.74668, -1.25607]).addTo(mymap);
+		marker = L.marker([51.74668, -1.25607], {icon: beerIcon}).addTo(mymap);
 		marker.bindPopup('<b>The Head of the River</b><br>Sunday night pub by the river');
 		
-		marker = L.marker([51.75127, -1.25737]).addTo(mymap);
+		marker = L.marker([51.75127, -1.25737], {icon: beerIcon}).addTo(mymap);
 		marker.bindPopup('<b>St. Aldates Tavern</b><br>Tuesday night pub - head upstairs to the Blue Room');
 		
-		marker = L.marker([51.74849, -1.25747]).addTo(mymap);
+		marker = L.marker([51.74849, -1.25747], {icon: busIcon}).addTo(mymap);
 		marker.bindPopup('<b>Speedwell Street Bus Stop</b><br>Bus Stop for travel towards London');
 		
-		marker = L.marker([51.75053, -1.25688]).addTo(mymap);
+		marker = L.marker([51.75053, -1.25688], {icon: busIcon}).addTo(mymap);
 		marker.bindPopup('<b>St. Aldates Bus Stop</b><br>Bus Stop for travel from London');
 		
-		marker = L.marker([51.75339, -1.26976]).addTo(mymap);
+		marker = L.marker([51.75339, -1.26976], {icon: busIcon}).addTo(mymap);
 		marker.bindPopup('<b>Oxford Train Station</b><br>15 minute walk from Pembroke College');
 		
-		marker = L.marker([51.75273, -1.26559]).addTo(mymap);
+		marker = L.marker([51.75273, -1.26559], {icon: foodIcon}).addTo(mymap);
 		marker.bindPopup('<b>Sojo</b><br>Amazing Chinese food');
 		
-		marker = L.marker([51.76092, -1.26739]).addTo(mymap);
+		marker = L.marker([51.76092, -1.26739], {icon: foodIcon}).addTo(mymap);
 		marker.bindPopup('<b>Zheng</b><br>Amazing Chinese food with added Malaysian');
 		
-		marker = L.marker([51.75711, -1.26619]).addTo(mymap);
+		marker = L.marker([51.75711, -1.26619], {icon: foodIcon}).addTo(mymap);
 		marker.bindPopup('<b>Al Shaami</b><br>Really authentic Lebanese place');
 		
-		marker = L.marker([51.75737, -1.25947]).addTo(mymap);
+		marker = L.marker([51.75737, -1.25947], {icon: beerIcon}).addTo(mymap);
 		marker.bindPopup('<b>The Lamb & Flag</b><br>Great pub - the Oxford Astronomer local. All profits fund graduate students');
 		
-		marker = L.marker([51.7627, -1.26654]).addTo(mymap);
+		marker = L.marker([51.7627, -1.26654], {icon: beerIcon}).addTo(mymap);
 		marker.bindPopup('<b>The Gardeners Arms</b><br>Vegetarian food pub. Burgers you would never guess were meat free. Beer Garden.');
 		
-		marker = L.marker([51.7647, -1.26173]).addTo(mymap);
+		marker = L.marker([51.7647, -1.26173], {icon: beerIcon}).addTo(mymap);
 		marker.bindPopup('<b>The Rose and Crown</b><br>Best ale pub in the city with outside space. Worth the trek.');
 		
-		marker = L.marker([51.75444, -1.26071]).addTo(mymap);
+		marker = L.marker([51.75444, -1.26071], {icon: beerIcon}).addTo(mymap);
 		marker.bindPopup('<b>The White Rabbit</b><br>Cosy pub with incredible stone baked pizza');
 		
-		marker = L.marker([51.75825, -1.26392]).addTo(mymap);
+		marker = L.marker([51.75825, -1.26392], {icon: beerIcon}).addTo(mymap);
 		marker.bindPopup('<b>Raouls</b><br>One of the top 50 cocktail bars in the world according to The Times. Voted most likely place to find Chris Lintott in Oxford.');
 		
-		marker = L.marker([51.74952, -1.24273]).addTo(mymap);
+		marker = L.marker([51.74952, -1.24273], {icon: foodIcon}).addTo(mymap);
 		marker.bindPopup('<b>The Kazbar</b><br>Authentic and extremely delicious Mezze and Tapas. Great mediterranean vibe.');
 		
-		marker = L.marker([51.75155, -1.25575]).addTo(mymap);
+		marker = L.marker([51.75155, -1.25575], {icon: beerIcon}).addTo(mymap);
 		marker.bindPopup('<b>The Bear</b><br>Oldest and smallest pub in Oxford. Good pub grub if you can find a table amongst the ties.');
 		
-		marker = L.marker([51.74859, -1.23989]).addTo(mymap);
+		marker = L.marker([51.74859, -1.23989], {icon: foodIcon}).addTo(mymap);
 		marker.bindPopup('<b>Atomic Burger</b><br>Taking burgers to epic proportions.');
 		
-		marker = L.marker([51.75053, -1.25701]).addTo(mymap);
+		marker = L.marker([51.75053, -1.25701], {icon: foodIcon}).addTo(mymap);
 		marker.bindPopup('<b>G&Ds </b><br>Ice Cream and Bagels.');
 		
-		marker = L.marker([51.75295, -1.25611]).addTo(mymap);
+		marker = L.marker([51.75295, -1.25611], {icon: coffeeIcon}).addTo(mymap);
 		marker.bindPopup('<b>The Missing Bean </b><br>Coffee house with 20% discount for .Astronomy participants.');
 		
-		marker = L.marker([51.75326, -1.26042]).addTo(mymap);
+		marker = L.marker([51.75326, -1.26042], {icon: coffeeIcon}).addTo(mymap);
 		marker.bindPopup('<b>Zappis</b><br>Bike cafe/bar. Student vibe. Try the banana bread.');
 		
 		var popup = L.popup();
