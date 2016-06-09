@@ -51,8 +51,6 @@
 <title>.Astronomy 8 | Oxford Map</title>
 <div id="map"></div>
  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
- <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/Leaflet.MakiMarkers.js"></script>
- <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/oms.min.js"></script>
 <script>
 var map = L.map('map').setView([51.7505017,-1.3177993], 11);
 
@@ -71,31 +69,18 @@ function getColor(d) {
 }
 
 
-var redicon = L.MakiMarkers.icon({icon: null, color: "#CC2900", size: "m"});
-var orangeicon = L.MakiMarkers.icon({icon: null, color: "#E68A2E", size: "m"});
-var yellowicon = L.MakiMarkers.icon({icon: null, color: "#FFD119", size: "m"});
-var greenicon = L.MakiMarkers.icon({icon: null, color: "#309B30", size: "m"});
-var aquaicon = L.MakiMarkers.icon({icon: null, color: "#009999", size: "m"});
-var blueicon = L.MakiMarkers.icon({icon: null, color: "#1947A3", size: "m"});
-var purpleicon = L.MakiMarkers.icon({icon: null, color: "#bb00bb", size: "m"});
-var blackicon = L.MakiMarkers.icon({icon: null, color: "#000000", size: "m"});
+var redicon = L.marker({icon: null, color: "#CC2900", size: "m"});
+var orangeicon = L.marker({icon: null, color: "#E68A2E", size: "m"});
+var yellowicon =L.marker({icon: null, color: "#FFD119", size: "m"});
+var greenicon = L.marker({icon: null, color: "#309B30", size: "m"});
+var aquaicon = L.marker({icon: null, color: "#009999", size: "m"});
+var blueicon = L.marker({icon: null, color: "#1947A3", size: "m"});
+var purpleicon = L.marker({icon: null, color: "#bb00bb", size: "m"});
+var blackicon = L.marker({icon: null, color: "#000000", size: "m"});
 
-var oms = new OverlappingMarkerSpiderfier(map,{keepSpiderfied: "True",circleSpiralSwitchover: "Infinity"});
-var popup = new L.Popup();
-oms.addListener('click', function(marker) {
-  popup.setContent(marker.desc);
-  popup.setLatLng(marker.getLatLng());
-  map.openPopup(popup);
-oms.addListener('spiderfy', function(markers) {
-  map.closePopup();
-});
-
-
-
-});
-	marker = L.marker([51.7502347,-1.258915],{icon: redicon}).addTo(map);
-		oms.addMarker(marker); 
-		marker.bindPopup('<b>Pembroke College</b><br>Conference venue and accomodation');
+marker = L.marker([51.7502347,-1.258915],{icon: redicon}).addTo(map);
+oms.addMarker(marker); 
+marker.bindPopup('<b>Pembroke College</b><br>Conference venue and accomodation');
 	
 
 var legend = L.control({position: 'bottomleft'});
@@ -122,32 +107,9 @@ legend.onAdd = function (map) {
 
 legend.addTo(map);
 
-var notebox = L.control({position: 'topright'});
-
-notebox.onAdd = function (map) {
-    var div = L.DomUtil.create('div', 'info legend'),
-    	grades = [1]
-    // loop through our density intervals and generate a label with a colored square for each interval
-    for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            'Click <a href="http://www.physics.usyd.edu.au/~vmoss/jobvis/index_toggle.html">here</a> for a filterable version of JobVis<br>';
-    }    
-    return div;
-};
-notebox.addTo(map);
 
 </script>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-17034944-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 
 </body>
 
