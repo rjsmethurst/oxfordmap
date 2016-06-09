@@ -39,6 +39,11 @@
 		}
 		mymap.on('locationfound', onLocationFound);
 		
+		function onLocationError(e) {
+    			alert(e.message);
+		}
+		mymap.locate({setView: [51.7505017,-1.2589], maxZoom: 16});
+
 		
 
 		var homeIcon = L.icon({
