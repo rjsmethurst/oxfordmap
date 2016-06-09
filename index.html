@@ -1,16 +1,153 @@
-<!DOCTYPE html>
-<html> 
-	<head>
-	<title> 
-		.Astronomy 8 | Oxford Map
-	</title>
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-	<script type="text/javascript" src="app.js"></script>
-	
-	</head>
 
-	<body>
-		<div id="mapid"></div>
-	</body>
+
+<html>
+ 
+<head>
+<link rel="stylesheet" href="leaflet.css" />
+
+<style>
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+
+.info {
+    padding: 6px 8px;
+    font: 12px/14px Tahoma, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+
+.legend .circle {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin-top: 8px;
+}
+
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 1;
+}
+
+
+</style>
+
+</head>
+
+<body>
+<div id="map"></div>
+<script src="leaflet.js"></script>
+<script src="Leaflet.MakiMarkers.js"></script>
+<script src="oms.min.js"></script>
+<script>
+var map = L.map('map').setView([51.7505017,-1.3177993], 11);
+
+
+
+function getColor(d) {
+    return d == 2   ? '#CC2900' :
+           d == 3   ? '#E68A2E' :
+           d == 4   ? '#FFD119' :
+           d == 5   ? '#309B30' :
+           d == 6   ? '#009999' :
+           d == 7   ? '#1947A3' :
+           d == 8   ? '#bb00bb' :
+           d == 9   ? '#000000' :
+                      '#000000' ;
+}
+
+
+var redicon = L.MakiMarkers.icon({icon: null, color: "#CC2900", size: "m"});
+var orangeicon = L.MakiMarkers.icon({icon: null, color: "#E68A2E", size: "m"});
+var yellowicon = L.MakiMarkers.icon({icon: null, color: "#FFD119", size: "m"});
+var greenicon = L.MakiMarkers.icon({icon: null, color: "#309B30", size: "m"});
+var aquaicon = L.MakiMarkers.icon({icon: null, color: "#009999", size: "m"});
+var blueicon = L.MakiMarkers.icon({icon: null, color: "#1947A3", size: "m"});
+var purpleicon = L.MakiMarkers.icon({icon: null, color: "#bb00bb", size: "m"});
+var blackicon = L.MakiMarkers.icon({icon: null, color: "#000000", size: "m"});
+
+var oms = new OverlappingMarkerSpiderfier(map,{keepSpiderfied: "True",circleSpiralSwitchover: "Infinity"});
+var popup = new L.Popup();
+oms.addListener('click', function(marker) {
+  popup.setContent(marker.desc);
+  popup.setLatLng(marker.getLatLng());
+  map.openPopup(popup);
+oms.addListener('spiderfy', function(markers) {
+  map.closePopup();
+});
+
+
+
+});
+	marker = L.marker([51.7502347,-1.258915],{icon: redicon}).addTo(map);
+		oms.addMarker(marker); 
+		marker.bindPopup('<b>Pembroke College</b><br>Conference venue and accomodation');
+	
+
+var legend = L.control({position: 'bottomleft'});
+
+legend.onAdd = function (map) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [1, 2, 3, 4, 5, 6, 7, 8],
+        labels = ['Conference Venues',
+        		  'Oganised pub trips',
+        		  'Recommended pubs',
+        		  'Recommended restaurants',
+        		  'Coffee houses'];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i class="circle" style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+            labels[i] + '<br>';
+    }    
+
+    return div;
+};
+
+legend.addTo(map);
+
+var notebox = L.control({position: 'topright'});
+
+notebox.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'info legend'),
+    	grades = [1]
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            'Click <a href="http://www.physics.usyd.edu.au/~vmoss/jobvis/index_toggle.html">here</a> for a filterable version of JobVis<br>';
+    }    
+    return div;
+};
+notebox.addTo(map);
+
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-17034944-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+
 </html>
+	
