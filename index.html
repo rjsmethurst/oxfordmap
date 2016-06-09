@@ -4,13 +4,20 @@
  
 <head>
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
  	<title>.Astronomy 8 | Oxford Map</title>
 </head>
 
 <body>
 	<div id="map"></div>
 	<style>
-    		#map {height:1000px; }
+    		body {
+    			padding: 0;
+			margin: 0;
+		}
+		html, body, #map {
+			 height: 100%;
+		}
     		
 	</style>
 
