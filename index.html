@@ -96,7 +96,7 @@
     			iconAnchor:   [15, 38], // point of the icon which will correspond to marker's location
     			popupAnchor:  [-3, -40] // point from which the popup should open relative to the iconAnchor
     			});
-    		var workIcon = L.icon({
+    		var moneyIcon = L.icon({
     			iconUrl: 'gbp.png',
 
 			iconSize:     [29, 39], // size of the icon
@@ -141,7 +141,7 @@
 		marker.bindPopup('<b>ATM</b><br>Inside the Co-Operative - will close in the evening');
 		
 		marker = L.marker([51.75467, -1.25911], {icon: moneyIcon}).addTo(mymap);
-		marker.bindPopup("<b>ATM</b><br>Outside Sainsbury's or Tesco");
+		marker.bindPopup('<b>ATM</b><br>Outside Tesco');
 		
 		marker = L.marker([51.74849, -1.25747], {icon: busIcon}).addTo(mymap);
 		marker.bindPopup('<b>Speedwell Street Bus Stop</b><br>Bus Stop for travel towards London');
