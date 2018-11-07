@@ -5,7 +5,7 @@
 <head>
 	<link rel="stylesheet" href="leaflet.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
- 	<title>.Astronomy 8 | Oxford Map</title>
+ 	<title>MaNGA Meeting 2019 | Oxford Map</title>
 </head>
 
 <body>
@@ -31,10 +31,10 @@
     		accessToken: 'pk.eyJ1IjoicmpzbWV0aHVyc3QiLCJhIjoiY2lnbG56YnplMDE0M3RjbTNkems5cWI0aCJ9.ekUxiCzi_8dwkUinlpr1YQ'
 }).addTo(mymap);
 		
-		mymap.locate({setView: true, maxZoom: 16});
+		// mymap.locate({setView: true, maxZoom: 16});
 		
 		function onLocationFound(e) {
-    			L.marker(e.latlng).addTo(mymap)
+    			L.marker(e.latlng, {icon: homeIcon}).addTo(mymap)
     				.bindPopup('You are here')
     			if (e.latlng.lat > 51.768 || e.latlng.lat < 51.74247 || e.latlng.lng > -1.2336 || e.latlng.lng < -1.27793) {
     				mymap.setView([51.7505017,-1.2589], 15)	
@@ -42,14 +42,14 @@
     				mymap.setView(e.latlng, 15)
     			}
 		}
-		mymap.on('locationfound', onLocationFound);
+		// mymap.on('locationfound', onLocationFound);
 		
 		function onLocationError(e) {
     			mymap.setView([51.7505017,-1.2589], 15)
 		}
-		mymap.on('locationerror', onLocationError);
+		// mymap.on('locationerror', onLocationError);
 
-		
+		mymap.setView([51.7505017,-1.2589], 15)
 
 		var homeIcon = L.icon({
     			iconUrl: 'home.png',
@@ -104,29 +104,33 @@
     			popupAnchor:  [-3, -40] // point from which the popup should open relative to the iconAnchor
     			});
 
-		marker = L.marker([51.75024, -1.25782], {icon: homeIcon}).addTo(mymap);
-		marker.bindPopup('<b>Pembroke College</b><br>Conference venue and accomodation');
+		marker = L.marker([51.7574213, -1.2528598], {icon: homeIcon}).addTo(mymap);
+		marker.bindPopup('<b>Mansfield College</b><br>College accomodation');
 		
-		marker = L.marker([51.75484, -1.25423], {icon: workIcon}).addTo(mymap);
-		marker.bindPopup('<b>Oxford Martin School</b><br>Day 0 Venue');
+		// marker = L.marker([51.75484, -1.25423], {icon: workIcon}).addTo(mymap);
+		// marker.bindPopup('<b>Oxford Martin School</b><br>Day 0 Venue');
 		
 		marker = L.marker([51.75511, -1.25432], {icon: beerIcon}).addTo(mymap);
-		marker.bindPopup('<b>The Kings Arms</b><br>Monday night pub');
+		marker.bindPopup('<b>The Kings Arms</b><br>Large pub which is good for groups with decent food and lots of nooks to disappear in to. ');
+
+		marker = L.marker([51.7547, -1.25293], {icon: beerIcon}).addTo(mymap);
+		marker.bindPopup("<b>The Turf Tavern</b><br>Hidden down two different narrow alley ways, it's definitely worth the adventure to find it. The most quintessential pub you will ever find with low ceilings, tiny bar and stonework walls. It also has a large ale selection, a sprawling outside seating area (complete with space heaters) and a rich Oxford history as the first pub outside the original city walls. It prides itself in being the place where Bill Clinton ''didn't inhale''.");
+
 		
 		marker = L.marker([51.74668, -1.25607], {icon: beerIcon}).addTo(mymap);
-		marker.bindPopup('<b>The Head of the River</b><br>Sunday night pub by the river');
+		marker.bindPopup('<b>The Head of the River</b><br>Pub on the river with a good outside terrace space, in case we get nice weather.');
 		
-		marker = L.marker([51.75127, -1.25737], {icon: beerIcon}).addTo(mymap);
-		marker.bindPopup('<b>St. Aldates Tavern</b><br>Tuesday night pub - head upstairs to the Blue Room');
+		// marker = L.marker([51.75127, -1.25737], {icon: beerIcon}).addTo(mymap);
+		// marker.bindPopup('<b>St. Aldates Tavern</b><br>Tuesday night pub - head upstairs to the Blue Room');
 		
-		marker = L.marker([51.75077, -1.25935], {icon: beerIcon}).addTo(mymap);
-		marker.bindPopup('<b>The Royal Blenheim</b><br>Pembroke College official pub with a spread of real ale. Always got sport on the screens but never football. Try the pub quiz on Wednesday at 20:30 - one answer is always Cheese!' );
+		// marker = L.marker([51.75077, -1.25935], {icon: beerIcon}).addTo(mymap);
+		// marker.bindPopup('<b>The Royal Blenheim</b><br>Pembroke College official pub with a spread of real ale. Always got sport on the screens but never football. Try the pub quiz on Wednesday at 20:30 - one answer is always Cheese!' );
 		
 		marker = L.marker([51.75097, -1.25721], {icon: moneyIcon}).addTo(mymap);
 		marker.bindPopup('<b>ATM</b><br>By the post office' );
 		
-		marker = L.marker([51.75097, -1.25721], {icon: moneyIcon}).addTo(mymap);
-		marker.bindPopup('<b>ATM</b><br>By the post office');
+		// marker = L.marker([51.75097, -1.25721], {icon: moneyIcon}).addTo(mymap);
+		// marker.bindPopup('<b>ATM</b><br>By the post office');
 		
 		marker = L.marker([51.75209, -1.25784], {icon: moneyIcon}).addTo(mymap);
 		marker.bindPopup('<b>ATM</b><br>Barclays on one side of the street - Lloyds TSB on the other.');
@@ -134,8 +138,8 @@
 		marker = L.marker([51.75414, -1.25658], {icon: moneyIcon}).addTo(mymap);
 		marker.bindPopup('<b>ATM</b><br>NatWest');
 		
-		marker = L.marker([51.75217, -1.25591], {icon: moneyIcon}).addTo(mymap);
-		marker.bindPopup('<b>ATM</b><br>NatWest');
+		// marker = L.marker([51.75217, -1.25591], {icon: moneyIcon}).addTo(mymap);
+		// marker.bindPopup('<b>ATM</b><br>NatWest');
 		
 		marker = L.marker([51.74863, -1.25671], {icon: moneyIcon}).addTo(mymap);
 		marker.bindPopup('<b>ATM</b><br>Inside Tesco - open daily 7am-11pm');
@@ -146,14 +150,17 @@
 		marker = L.marker([51.75467, -1.25911], {icon: moneyIcon}).addTo(mymap);
 		marker.bindPopup('<b>ATM</b><br>Outside Tesco');
 		
-		marker = L.marker([51.74849, -1.25747], {icon: busIcon}).addTo(mymap);
-		marker.bindPopup('<b>Speedwell Street Bus Stop</b><br>Bus Stop for travel towards London');
+		marker = L.marker([51.75277, -1.25071], {icon: busIcon}).addTo(mymap);
+		marker.bindPopup("<b>High Street and Queen's Lane Bus Stop</b><br>Bus Stop for travel towards London and London Airports");
 		
-		marker = L.marker([51.75053, -1.25688], {icon: busIcon}).addTo(mymap);
-		marker.bindPopup('<b>St. Aldates Bus Stop</b><br>Bus Stop for travel from London');
+		marker = L.marker([51.75259, -1.25102], {icon: busIcon}).addTo(mymap);
+		marker.bindPopup('<b>High Street Bus Stop</b><br>Bus Stop for travel from London and airports');
+		
+		marker = L.marker([51.75403, -1.26275], {icon: busIcon}).addTo(mymap);
+		marker.bindPopup('<b>Gloucester Green Bus Station</b><br>Main central bus station for all onward bus travel.');
 		
 		marker = L.marker([51.75339, -1.26976], {icon: busIcon}).addTo(mymap);
-		marker.bindPopup('<b>Oxford Train Station</b><br>15 minute walk from Pembroke College');
+		marker.bindPopup('<b>Oxford Train Station</b>');
 		
 		marker = L.marker([51.75273, -1.26559], {icon: foodIcon}).addTo(mymap);
 		marker.bindPopup('<b>Sojo</b><br>Amazing Chinese food');
@@ -168,13 +175,13 @@
 		marker.bindPopup('<b>The Lamb & Flag</b><br>Great pub - the Oxford Astronomer local. Food only available at lunch time. All profits fund graduate students');
 		
 		marker = L.marker([51.7627, -1.26654], {icon: beerIcon}).addTo(mymap);
-		marker.bindPopup('<b>The Gardeners Arms</b><br>Vegetarian food pub. Burgers you would never guess were meat free. Beer Garden.');
+		marker.bindPopup('<b>The Gardeners Arms</b><br>Vegetarian food pub. Burgers you would never guess were meat free. Plus a sizeable Beer Garden (in case we have nice weather).');
 		
 		marker = L.marker([51.7647, -1.26173], {icon: beerIcon}).addTo(mymap);
 		marker.bindPopup('<b>The Rose and Crown</b><br>Best ale pub in the city with outside space. Worth the trek.');
 		
 		marker = L.marker([51.75444, -1.26071], {icon: beerIcon}).addTo(mymap);
-		marker.bindPopup('<b>The White Rabbit</b><br>Cosy pub with incredible stone baked pizza');
+		marker.bindPopup('<b>The White Rabbit</b><br>Cosy music pub with incredible stone baked pizza');
 		
 		marker = L.marker([51.75825, -1.26392], {icon: beerIcon}).addTo(mymap);
 		marker.bindPopup('<b>Raouls</b><br>One of the top 50 cocktail bars in the world according to The Times. Voted most likely place to find Chris Lintott in Oxford.');
@@ -192,7 +199,7 @@
 		marker.bindPopup('<b>G&Ds </b><br>Ice Cream and Bagels.');
 		
 		marker = L.marker([51.75295, -1.25611], {icon: coffeeIcon}).addTo(mymap);
-		marker.bindPopup('<b>The Missing Bean </b><br>Coffee house with 20% discount for .Astronomy participants.');
+		marker.bindPopup('<b>The Missing Bean </b><br>One of the best coffee nooks in Oxford.');
 		
 		marker = L.marker([51.75326, -1.26042], {icon: coffeeIcon}).addTo(mymap);
 		marker.bindPopup('<b>Zappis</b><br>Bike cafe/bar. Student vibe. Try the banana bread.');
